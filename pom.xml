@@ -92,4 +92,29 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>online</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+
+            </dependencies>
+            <properties>
+                <profile.active>online</profile.active>
+                <logwriter.inv>online</logwriter.inv>
+
+                <!-- jdbc -->
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://47.94.128.249:3306/sl?useUnicode=true</url>
+                <autoReconnect>true</autoReconnect>
+                <failOverReadOnly>false</failOverReadOnly>
+                <username>root</username>
+                <password>Plpl.1234</password>
+
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
