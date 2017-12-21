@@ -1,0 +1,13 @@
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+    <th>姓名</th>
+    <th>年龄</th>
+    </tr>
+    #foreach($p in ${people})
+        <tr>
+            <td>$p.name</td>
+            <td>$p.age</td>
+        </tr>
+    #end
+</table>
+

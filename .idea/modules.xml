@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ModuleProject.iml" filepath="$PROJECT_DIR$/ModuleProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-mysql/common-mysql.iml" filepath="$PROJECT_DIR$/common-mysql/common-mysql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-web/common-web.iml" filepath="$PROJECT_DIR$/common-web/common-web.iml" />
+    </modules>
+  </component>
+</project>
