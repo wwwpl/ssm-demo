@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+    <!--<properties resource="properties/jdbc.properties" />-->
+    <!--<settings-->
+    <!-- 是否启用缓存机制 -->
+    <!-- cacheModelsEnabled ="true" -->
+    <!-- 是否启用延迟加载机制 -->
+    <!-- lazyLoadingEnabled="true" -->
+    <!--是否启用字节码增强机制 -->
+    <!-- enhancementEnabled="true" -->
+    <!-- 是否启用错误处理机制 -->
+    <!-- errorTracingEnabled="true" -->
+    <!-- 最大并发请求数 -->
+    <!-- maxRequests="32" -->
+    <!-- 最大Session数 -->
+    <!-- maxSessions="10" -->
+    <!-- 最大并发事务数 -->
+    <!-- maxTransactions="5" -->
+    <!-- 是否启用名称空间 -->
+    <!-- useStatementNamespaces="true"/> -->
+    <!-- 定义了ibatis的事务管理器有3中（JDBC,JTA,EXTERNAL） -->
+    <transactionManager type="JDBC">
+        <!-- type属性指定了数据源的链接类型，也有3种类型(SIMPLE,DBCP,JNDI) -->
+        <dataSource type="SIMPLE">
+            <property name="JDBC.Driver" value="${driver}"/>
+            <property name="JDBC.ConnectionURL" value="${url}"/>
+            <property name="JDBC.autoReconnect" value="${autoReconnect}"/>
+            <property name="JDBC.failOverReadOnly" value="${failOverReadOnly}"/>
+            <property name="JDBC.Username" value="${username}"/>
+            <property name="JDBC.Password" value="${password}"/>
+            <!-- 连接池维持的最大容量 -->
+            <property name="Pool.MaximumActiveConnections" value="32" />
+            <!-- 连接池允许挂起的最大连接 -->
+            <property name="Pool.MaximumIdleConnections" value="8" />
+            <!-- 连接被某个任务所允许占用的最大时间 -->
+            <property name="Pool.MaximumCheckoutTime" value="120000" />
+            <!-- 线程允许等待的最大时间 -->
+            <property name="Pool.TimeToWait" value="500" />
+            <!-- 是否允许检测连接状态 -->
+            <property name="Pool.PingEnabled" value="true"/>
+            <!-- 用于检测连接的查询语 -->
+            <property name="Pool.PingQuery" value="select 1 from dual"/>
+            <!-- 对持续连接时间超过设定值（毫秒）的连接进行检测，设置为０（不检测），否则，iBatis在超过这个时间后，执行每个sql以前检测连接，对于性能可能会有影响。 -->
+            <property name="Pool.PingConnectionsOlderThan" value="0"/>
+            <!-- 对空闲超过设定值（毫秒）的连接进行检测，设置为4小时（mysql缺省的关闭时间是8小时) -->
+            <property name="Pool.PingConnectionsNotUsedFor" value="14400000"/>
+        </dataSource>
+    </transactionManager>
+
+    <sqlMap resource="mybatis/PeopleMapper.xml" />
+</sqlMapConfig>
