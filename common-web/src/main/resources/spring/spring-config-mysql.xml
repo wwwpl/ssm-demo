@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  ">
+
+    <context:component-scan base-package="com.taru.project.service"></context:component-scan>
+
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:props/dbconfig.properties" />
+    </bean>
+
+
+    <!-- 数据源配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${initialSize}" />
+        <property name="maxActive" value="${maxActive}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${maxWait}" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+        <!-- 连接测试SQL语句 -->
+        <property name="validationQuery" value="${validationQuery}" />
+        <property name="testWhileIdle" value="${testWhileIdle}" />
+        <property name="testOnBorrow" value="${testOnBorrow}" />
+        <property name="testOnReturn" value="${testOnReturn}" />
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <!-- <property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${maxPoolPreparedStatementPerConnectionSize}" />-->
+        <property name="filters" value="${filters}" />
+    </bean>
+
+
+    <!-- <bean id="Template" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean> -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="mybatis" />
+        <property name="typeAliasesPackage" value="com.taru.project.model" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.taru.project.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
+    </bean>
+
+
+
+ <!--   <bean id="Sl4jLoggerAspectj" class="com.taru.project.aspectj.Sl4jLoggerAspectj"></bean>
+    <aop:config>
+        <aop:pointcut id="pointCut" expression="execution(* com.taru.project.service.impl.*.*(..))" />
+        <aop:aspect ref="Sl4jLoggerAspectj">
+            <aop:before pointcut-ref="pointCut" method="sl4jBefore" />
+            <aop:after pointcut-ref="pointCut" method="sl4jAfter" />
+        </aop:aspect>
+    </aop:config>
+-->
+
+
+
+
+    <!-- 配置spring的PlatformTransactionManager，名字为默认值  事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!--   事务的通知 -->
+    <tx:advice id="advice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" rollback-for="java.lang.Exception"/>
+
+
+            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="comService" expression="execution (* com.taru.project.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="advice" pointcut-ref="comService"/>
+    </aop:config>
+
+
+
+
+    <!-- 声明式异常处理 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 定义默认异常处理页面，defaultErrorView, 当没有配置异常处理映射时，该默认视图将起作用 -->
+        <property name="defaultErrorView" value="error/error"></property>
+        <!--  exceptionMappings 异常处理映射Property，key=“异常名称”， vlaue=异常处理视图 -->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">error</prop>
+            </props>
+        </property>
+        <property name="exceptionAttribute" value="ex"></property>
+        <!-- 处理异常后打印日志 -->
+        <property name="warnLogCategory" value="ERROR"></property>
+    </bean>
+
+
+    <!--  上传文件 -->
+    <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+         <property name="defaultEncoding" value="utf-8"></property>
+         <property name="maxUploadSize" value="10485760000"></property>
+         <property name="maxInMemorySize" value="40960"></property>
+         <property name="uploadTempDir" value="fileUpload/temp"></property>
+         上传类型
+         <property name="?" value="?"></property>
+
+    </bean>   -->
+</beans>

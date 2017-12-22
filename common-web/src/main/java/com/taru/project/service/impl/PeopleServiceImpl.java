@@ -1,4 +1,4 @@
-package com.taru.project.service.serviceImpl;
+package com.taru.project.service.impl;
 
 import com.taru.project.dao.PeopleDao;
 import com.taru.project.model.People;

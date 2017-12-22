@@ -35,7 +35,7 @@
         <property name="exposeSessionAttributes" value="true"/>
     </bean>
 
-    <import resource="classpath:spring/spring-*.xml"/>
+    <import resource="classpath:spring/spring-config-*.xml"/>
 
 
 
