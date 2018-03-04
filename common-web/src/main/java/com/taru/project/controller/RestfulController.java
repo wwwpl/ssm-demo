@@ -23,10 +23,13 @@ public class RestfulController {
     @Autowired
     PeopleService peopleService;
 
-    @RequestMapping("/abs")
-    public String restful(Model model){
-        List<People> list = peopleService.getList();
-        model.addAttribute("people",list);
-        return "abs";
+    @RequestMapping("/")
+    public String restful(){
+        return "Frame";
     }
+    @RequestMapping("/paly")
+    public String paly(){
+        return "font/single";
+    }
+
 }
