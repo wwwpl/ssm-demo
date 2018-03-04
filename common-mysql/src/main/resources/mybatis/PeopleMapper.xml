@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.taru.project.dao.PeopleDao">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+		"http://ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="PeopleMapple">
+	
+	<typeAlias alias="People" type="com.taru.project.model.People"/>
 
-	<select id="getList" resultType="People" >
-		<![CDATA[
-			select * from people
-		]]>
+	<resultMap id="PeopleModel" class="People">
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+	</resultMap>
+
+	<select id="getList" resultMap="PeopleModel">
+		select * from people
 	</select>
-
-</mapper>
+</sqlMap>

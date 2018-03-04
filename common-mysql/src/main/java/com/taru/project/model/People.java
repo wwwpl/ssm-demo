@@ -1,5 +1,12 @@
 package com.taru.project.model;
-
+/**
+ *
+ * ☺
+ * @author wangfei
+ * @date 2018年3月4日 13:55:05
+ * ☺
+ *
+ */
 public class People {
     private String name;
     private int age;

@@ -8,13 +8,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ *
+ * ☺
+ * @author wangfei
+ * @date 2018年3月4日 13:55:05
+ * ☺
+ *
+ */
 @Service
 public class PeopleServiceImpl implements PeopleService {
 
     @Autowired
     PeopleDao peopleDao;
 
-    public List<People> getList(){
-      return peopleDao.getList();
-    };
+    @Override
+    public List<People> getList() {
+        return peopleDao.getList();
+    }
 }
