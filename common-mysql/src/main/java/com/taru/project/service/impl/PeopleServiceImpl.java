@@ -1,7 +1,6 @@
 package com.taru.project.service.impl;
 
-import com.taru.project.dao.PeopleDao;
-import com.taru.project.model.People;
+import com.taru.project.mapper.PeopleDao;
 import com.taru.project.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
