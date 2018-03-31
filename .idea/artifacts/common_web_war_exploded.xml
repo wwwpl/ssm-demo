@@ -10,7 +10,10 @@
           <element id="archive" name="common-mysql-1.0-SNAPSHOT.jar">
             <element id="module-output" name="common-mysql" />
           </element>
+          <element id="library" level="project" name="Maven: org.apache.ibatis:ibatis-sqlmap:2.3.4.726" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.3" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.4.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
@@ -35,7 +38,7 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.0" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.35" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
-          <element id="library" level="project" name="Maven: org.apache.ibatis:ibatis-sqlmap:2.3.4.726" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:1.7.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -4,5 +4,4 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 >
 
-    <bean id="peopleDao" class="com.taru.project.dao.impl.PeopleDaoImpl"/>
 </beans>
