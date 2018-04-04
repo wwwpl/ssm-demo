@@ -1,0 +1,20 @@
+#macro(showVal $value)
+	#if($value)
+		$value
+	#else
+	#end
+#end
+
+#macro(toDate $value)
+	#if($value)
+		$dateTool.format("yyyy-MM-dd HH:mm:ss", $value)
+	#else
+	#end
+#end
+
+#macro(toPercent $value)
+	#if($value)
+		$numberTool.format("#0.00%", $value)
+	#else
+	#end
+#end

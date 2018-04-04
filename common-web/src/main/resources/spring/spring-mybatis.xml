@@ -44,7 +44,7 @@
 
 	<!--扫描 mapper 路径-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.jdjr.rdp.mdp.mysql.mapper"/>
+		<property name="basePackage" value="com.taru.project.mapper"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 

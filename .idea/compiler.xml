@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="common-mysql" target="1.6" />
       <module name="common-web" target="1.6" />
-      <module name="ModuleProject" target="1.5" />
+      <module name="ModuleProject" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

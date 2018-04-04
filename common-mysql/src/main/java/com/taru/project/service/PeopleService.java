@@ -1,5 +1,7 @@
 package com.taru.project.service;
 
+import com.taru.project.model.People;
+
 import java.util.List;
 
 /**

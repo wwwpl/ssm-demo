@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util.xsd ">
+
+	<context:property-placeholder location="classpath:props/auth.properties" ignore-unresolvable="true"/>
+
+	<!--&lt;!&ndash; 登录拦截器配置 &ndash;&gt;
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/api/**"/>
+			&lt;!&ndash; 用户会话拦截器 &ndash;&gt;
+	        <bean id="authInterceptor"
+	              class="com.jdjr.rdp.mdp.manager.api.interceptor.AuthInterceptor">
+                <property name="evn" value="${profile.active}"/>
+				<property name="loginPath" value="${login.path}"/>
+	        </bean>
+		</mvc:interceptor>
+	</mvc:interceptors>-->
+</beans>
+	

@@ -1,5 +1,10 @@
 package com.taru.project.model;
 
+/**
+ * @author wangfei33
+ * @date 2018年4月4日 10:45:30
+ * 测试
+ */
 public class People {
     private Integer id;
 

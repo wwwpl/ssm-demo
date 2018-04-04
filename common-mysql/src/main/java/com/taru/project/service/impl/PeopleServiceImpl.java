@@ -1,6 +1,8 @@
 package com.taru.project.service.impl;
 
-import com.taru.project.mapper.PeopleDao;
+
+import com.taru.project.mapper.PeopleMapper;
+import com.taru.project.model.People;
 import com.taru.project.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,10 +21,10 @@ import java.util.List;
 public class PeopleServiceImpl implements PeopleService {
 
     @Autowired
-    PeopleDao peopleDao;
+    private PeopleMapper peopleMapper;
 
     @Override
     public List<People> getList() {
-        return peopleDao.getList();
+        return peopleMapper.selectAll();
     }
 }
