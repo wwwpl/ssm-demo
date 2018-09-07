@@ -13,19 +13,16 @@
             http://www.springframework.org/schema/util
             http://www.springframework.org/schema/util/spring-util.xsd ">
 
-	<context:property-placeholder location="classpath:props/auth.properties" ignore-unresolvable="true"/>
 
-	<!--&lt;!&ndash; 登录拦截器配置 &ndash;&gt;
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/api/**"/>
-			&lt;!&ndash; 用户会话拦截器 &ndash;&gt;
-	        <bean id="authInterceptor"
-	              class="com.jdjr.rdp.mdp.manager.api.interceptor.AuthInterceptor">
-                <property name="evn" value="${profile.active}"/>
-				<property name="loginPath" value="${login.path}"/>
-	        </bean>
-		</mvc:interceptor>
-	</mvc:interceptors>-->
+    <!-- 登录拦截器配置 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/api/**"/> <!--拦截路径-->
+            <!-- 用户会话拦截器 -->
+            <bean id="authInterceptor"
+                  class="com.taru.project.interceptor.AuthInterceptor">
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
 	

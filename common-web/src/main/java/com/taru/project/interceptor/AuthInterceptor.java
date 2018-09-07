@@ -14,8 +14,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     private Logger logger = LoggerFactory.getLogger(HandlerInterceptorAdapter.class);
 
-    @Autowired
-    public Gson gson;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

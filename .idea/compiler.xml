@@ -6,14 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="common-mysql" />
+        <module name="common-common" />
+        <module name="common-dao" />
+        <module name="common-service" />
         <module name="common-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="common-mysql" target="1.6" />
-      <module name="common-web" target="1.6" />
-      <module name="ModuleProject" target="1.6" />
+      <module name="common-api" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

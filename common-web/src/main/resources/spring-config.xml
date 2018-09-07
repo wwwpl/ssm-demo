@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <import resource="classpath:spring/spring-*.xml"/>
-
+    <!--注解-->
     <context:component-scan base-package="com.taru.project" />
 
     <mvc:annotation-driven/>
@@ -36,8 +36,6 @@
         <property name="exposeRequestAttributes" value="true" />
         <property name="exposeSessionAttributes" value="true"/>
     </bean>
-
-
 
 
     <mvc:default-servlet-handler/>

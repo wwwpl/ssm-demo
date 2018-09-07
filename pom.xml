@@ -9,8 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>common-mysql</module>
         <module>common-web</module>
+        <module>common-dao</module>
+        <module>common-service</module>
+        <module>common-common</module>
     </modules>
 
 
@@ -137,6 +139,45 @@
                 <username>root</username>
                 <password>Plpl.1234</password>
 
+            </properties>
+        </profile>
+
+        <profile>
+            <id>yufa</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.active>yufa</profile.active>
+                <logwriter.inv>yufa</logwriter.inv>
+
+                <!-- jdbc -->
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://47.94.128.249:3306/sl?useUnicode=true</url>
+                <autoReconnect>true</autoReconnect>
+                <failOverReadOnly>false</failOverReadOnly>
+                <username>root</username>
+                <password>Plpl.1234</password>
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.active>test</profile.active>
+                <logwriter.inv>test</logwriter.inv>
+
+                <!-- jdbc -->
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://47.94.128.249:3306/sl?useUnicode=true</url>
+                <autoReconnect>true</autoReconnect>
+                <failOverReadOnly>false</failOverReadOnly>
+                <username>root</username>
+                <password>Plpl.1234</password>
             </properties>
         </profile>
     </profiles>
