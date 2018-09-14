@@ -20,7 +20,7 @@
             <mvc:mapping path="/api/**"/> <!--拦截路径-->
             <!-- 用户会话拦截器 -->
             <bean id="authInterceptor"
-                  class="com.taru.project.interceptor.AuthInterceptor">
+                  class="com.taru.project.web.interceptor.AuthInterceptor">
             </bean>
         </mvc:interceptor>
     </mvc:interceptors>

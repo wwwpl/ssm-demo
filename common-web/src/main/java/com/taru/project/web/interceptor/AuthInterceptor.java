@@ -1,4 +1,4 @@
-package com.taru.project.interceptor;
+package com.taru.project.web.interceptor;
 
 import com.google.gson.Gson;
 
